@@ -9,7 +9,7 @@ vue.js，element UI，axios<br>
 go，gin
 ## 目前进度
 PC端与后端交互完成
-微信端为实现接口接入，微信后端未完成
+微信端尚未实现接口接入，微信后端未完成
 ## 项目说明
 **Applets** 
 微信端:安装node环境，导入vant<br>
