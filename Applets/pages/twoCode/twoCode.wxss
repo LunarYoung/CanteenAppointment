@@ -1,0 +1,7 @@
+.out{
+ position: absolute;     /* 相对定位或绝对定位均可 */
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

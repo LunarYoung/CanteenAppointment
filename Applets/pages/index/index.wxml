@@ -1,0 +1,60 @@
+
+<swiper indicator-dots="true" autoplay="true " interval="2000" current="true" indicator-active-color="#fff" indicator-color="#eee">
+
+<swiper-item>
+    <image src="{{scImage[0].url}}"></image>
+</swiper-item>
+<swiper-item>
+    <image src="{{scImage[1].url}}"></image>
+</swiper-item>
+<swiper-item>
+    <image src="{{scImage[2].url}}"></image>
+</swiper-item>
+</swiper>
+
+  
+<view wx:for="{{items}}" wx:key="index">
+
+  <van-cell custom-class="aa" >
+  <view slot="title">
+    <van-button class="button" size="small" type="primary" bindtap="clickBtn">
+    <van-toast  id="van-toast"/>
+    添加</van-button>
+  <view class="content" >
+  <van-image image-class="image"
+    width="5rem"
+    height="4.8rem"
+    fit="fit"
+    src="{{item.imageUrl}}"
+  />  
+  <view>
+    <view class="name">{{item.name}}
+       <text class="sellSum">月售{{item.sellSum}}</text>
+    </view>
+    <view class="price">￥{{item.price}}</view>
+  </view>
+
+   </view>
+    </view>
+  </van-cell>
+
+</view>
+
+<van-submit-bar
+  price="{{ 3050 }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>
+
+
+<!-- <van-cell
+  is-link
+  
+  title="结算"
+  link-type="navigateTo"
+  url="/pages/cfOrder/cfOrder"
+/>
+
+<button  open-type="getUserInfo" bindgetuserinfo="a">aa</button> -->
+
+ <text>{{userInfo.nickName}}</text>

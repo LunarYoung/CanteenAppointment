@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/car/car",
+    "pages/myOrder/myOrder",
+    "pages/me/me",
+    "pages/phone/phone",
+    "pages/address/address",
+    "pages/state/state",
+    "pages/twoCode/twoCode",
+    "pages/history/history",
+    "pages/advise/advice",
+    "pages/cfOrder/cfOrder"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "食堂预约点餐",
+ 
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+      "van-row": "@vant/weapp/row/index",
+      "van-col": "@vant/weapp/col/index",
+      "van-notify": "@vant/weapp/notify/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#dbdbdb",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "菜单",
+        "iconPath": "assest/food1.png",
+        "selectedIconPath": "assest/food.png"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "text": "购物车",
+        "iconPath": "assest/car1.png",
+        "selectedIconPath": "assest/car.png"
+      },
+      {
+        "pagePath": "pages/myOrder/myOrder",
+        "text": "订单",
+        "iconPath": "assest/order1.png",
+        "selectedIconPath": "assest/order.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "assest/me1.png",
+        "selectedIconPath": "assest/me.png"
+      }
+    ]
+  }
+}

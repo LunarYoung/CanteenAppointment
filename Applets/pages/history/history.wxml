@@ -1,0 +1,14 @@
+
+
+<view wx:for="{{orderList}}">
+
+<van-panel custom-class="ddd" header-class="ddd" title="订单号：{{item.orderNumber}}" desc="订单时间:{{item.time}}" status="{{item.state}}" use-footer-slot>
+<view class="content">
+<text>{{item.name}}</text>
+<text class="price">￥{{item.price}}</text>
+</view>
+  <view class="get_food" slot="footer">
+  </view>
+</van-panel>
+
+</view>

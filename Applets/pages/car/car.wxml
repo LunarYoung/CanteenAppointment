@@ -1,0 +1,22 @@
+<view wx:for="{{items}}" wx:key="index" data-index="{{index}}" >
+<van-card
+  tag="特价"
+  price="{{item.price}}"
+  desc="美味"
+  title="{{item.name}}"
+  thumb="{{item.thumb}}">
+    <view slot="footer">
+      <van-button class="shanchu" type="danger" size="mini" bindtap="deleteList" data-index="{{index}}">删除</van-button>
+      <van-stepper class="step" data-index="{{index}}" value="{{ item.number }}" bind:change="onChange" bind:plus="plus" bind:minus="minus"/>
+    </view>
+</van-card>
+</view>
+
+
+
+
+<van-submit-bar
+  price="{{totalPrice*100}}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>

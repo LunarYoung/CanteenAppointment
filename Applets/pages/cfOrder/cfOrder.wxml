@@ -1,0 +1,74 @@
+<view class="panel">
+    <view class="panel_item">
+    取餐号：
+      <text class="panel_item_content">{{cf_info.get_num}}</text>
+    </view>
+    <view class="panel_item">
+    订单号：
+      <text class="panel_item_content">{{cf_info.cf_num}}</text>
+    </view>
+    <view class="panel_item">
+    订单时间：
+      <text class="panel_item_content">{{cf_info.cf_time}}</text>
+    </view>
+    <view class="panel_item">
+        <text class="panel_item_content_name">{{cf_info.cf_name}}</text>
+
+    </view>
+    <view class="panel_item">
+    金额:
+    <text class="panel_item_content_price">￥{{cf_info.cf_price}}</text>
+    </view>
+</view>
+
+
+ <view class="panel1">
+    <view class="panel_item">
+      联系方式：
+      <text class="panel_item_content">{{cf_info.contact}}</text>
+    </view>
+   <view class="panel_item">
+      地址：
+      <text class="panel_item_content">{{cf_info.address}}</text>
+    </view>
+     <view class="panel_item">
+    配送费:
+    <text class="panel_item_content_price">￥2</text>
+    </view>
+    </view> 
+
+
+
+
+<view class="panel2">
+
+    <input  placeholder="备注">
+    </input>
+<view class="remark">
+    <van-button plain type="info" size="mini">多加饭</van-button>
+    <van-button plain type="info" size="mini">多加汁</van-button>
+
+</view>
+
+</view>
+
+<van-radio-group class="aa" value="{{ radio }}" bind:change="onChange" >
+<van-row >
+            
+            <van-col offset="13" span="5">
+                <van-radio name="1">堂食</van-radio>
+            </van-col>
+            <van-col span="5">
+                <van-radio name="2">外卖</van-radio>
+            </van-col>
+</van-row>
+</van-radio-group>
+
+
+
+<van-submit-bar 
+  round
+  price="{{ 3050 }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>

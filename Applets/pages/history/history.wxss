@@ -1,0 +1,33 @@
+page {
+  background-Color: #F5F5F5;
+}
+
+
+.ddd{
+  border-radius: 40rpx;
+  background: white!important;
+  margin-top: 10rpx;
+}
+.get_food{
+  float: right;
+  margin-right: -120rpx;
+  margin-top: 30rpx;
+}
+.content{
+  height: 80rpx;
+  margin-top: 20rpx;
+  
+  margin-left: 34rpx;
+  font-size: 33rpx;
+ 
+}
+
+.price{
+  margin-right: 50rpx;
+  float: right;
+}
+
+
+.van-panel__footer{
+  padding: 0 0!important;
+}

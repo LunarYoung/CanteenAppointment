@@ -1,0 +1,61 @@
+page {
+  background-Color: #F5F5F5;
+}
+
+
+.ddd{
+  background: white!important;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+ 
+
+}
+
+.get_food{
+  float: right;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+}
+.dizhi{
+  height: 140rpx;
+  margin-top: 20rpx;
+  border-bottom: 1px solid gray;
+  margin-left: 34rpx;
+  font-size: 33rpx;
+ 
+}
+
+
+
+
+
+.wenzi{
+  height: 150rpx;
+
+}
+
+.wenzi1{
+  float: left;
+  margin-left: 40rpx;
+  margin-top:20rpx;
+
+}
+
+.money{
+  float: right;
+  margin-right: 40rpx;
+  margin-top: 90rpx;
+  font-size: 40rpx;
+
+}
+.moneyId{
+  float: right;
+  margin-right: 5rpx;
+  color: red;
+  margin-top: 90rpx;
+
+}
+
+.van-panel__footer{
+  padding: 0 0!important;
+}

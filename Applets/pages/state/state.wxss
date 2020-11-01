@@ -1,0 +1,12 @@
+page {
+  background-Color: #F5F5F5;
+}
+.state{
+    margin-left: 42%;
+    font-size: 50rpx;
+}
+
+.a{
+  margin-left: 50rpx;
+ 
+}

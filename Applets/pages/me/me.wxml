@@ -1,0 +1,65 @@
+
+<view wx:if="{{url != ''}}">
+<van-image
+class="i_image"
+  round
+  width="5rem"
+  height="5rem"
+  src="{{url}}"
+/>
+</view>
+<view wx:if="{{url == ''}}">
+<button type="primary" plain open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" >登陆</button>
+</view>
+
+
+
+<van-cell
+  is-link
+  icon="/assest/me/phone.svg"
+  title="联系方式"
+  link-type="navigateTo"
+  url="/pages/phone/phone"
+/>
+
+
+<van-cell
+  is-link
+  icon="/assest/me/address.svg"
+  title="我的地址"
+  link-type="navigateTo"
+  url="/pages/address/address"
+/>
+
+<van-cell
+  is-link
+  icon="/assest/me/history.svg"
+  title="历史订单"
+  link-type="navigateTo"
+  url="/pages/history/history"
+/>
+
+
+
+<van-cell
+  is-link
+  icon="/assest/me/twoCode.svg"
+  title="我的二维码"
+  link-type="navigateTo"
+  url="/pages/twoCode/twoCode"
+/>
+<van-cell
+  is-link
+  icon="/assest/me/advise.svg"
+  title="向食堂提出建议"
+  link-type="navigateTo"
+  url="/pages/advise/advice"
+/>
+
+<van-cell
+  is-link
+  icon="/assest/me/state.svg"
+  title="声明"
+  link-type="navigateTo"
+  url="/pages/state/state"
+/>
