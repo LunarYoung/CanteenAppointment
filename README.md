@@ -20,6 +20,7 @@ PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 ## 项目预览
 ![avatar](/img/1.jpg)
 ![avatar](/img/2.jpg)
+![avatar](img/7.png)
 ![avatar](/img/3.jpg)
 ![avatar](/img/4.jpg)
 ![avatar](img/5.png)
