@@ -6,7 +6,7 @@ vant<br>
 **前端**:
 vue.js，element UI，axios<br>
 **服务端**:
-go，gin
+go，gin，gorm,mysql
 ## 目前进度
 PC端与后端交互完成
 微信端尚未实现接口接入，微信后端未完成
@@ -18,12 +18,12 @@ PC端与后端交互完成
 **shitang**
 PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 **dining**
-后端:安装go1.13以上，导入gin
+后端:安装go1.13以上，go get 相关的库
 ## 项目预览
 ![avatar](/img/1.jpg)
 ![avatar](/img/2.jpg)
 ![avatar](img/7.png)
-![avatar](/img/3.jpg)
+![avatar](/img/3.png)
 ![avatar](/img/4.jpg)
 ![avatar](img/5.png)
 ![avatar](img/6.png)
