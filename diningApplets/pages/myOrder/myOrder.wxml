@@ -1,0 +1,29 @@
+
+
+<van-panel  custom-class="ddd" header-class="ddd" title="订单号：{{order[0].OrderNum}}" desc="时间:{{order[0].OrderTime}}" status="{{order[0].Type}}" use-footer-slot>
+  
+<view class="dizhi">
+<view>
+地址:{{order[0].Address}}
+</view>
+<view>
+电话:{{order[0].Phone}}
+</view>
+</view>
+
+  <view class="wenzi">
+  <text class="wenzi1">{{order[0].FoodName}}</text>
+  <text class="wenzi1">{{order[0].FoodName1}}</text>
+  <text class="money" > {{order[0].Price}}</text>
+  <text class="moneyId">￥</text>
+  </view>
+
+  
+  <view class="get_food" slot="footer">
+    <van-button  size="small" type="danger">收货</van-button>
+  </view>
+</van-panel>
+
+
+
+

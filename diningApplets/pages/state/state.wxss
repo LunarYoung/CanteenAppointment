@@ -1,0 +1,19 @@
+page {
+  background-Color: #F5F5F5;
+}
+.state{
+    margin-left: 42%;
+    font-size: 50rpx;
+    margin-top:2%;
+}
+
+.a{
+  margin-left: 50rpx;
+ 
+}
+.content{
+  width: 98%;
+  margin-left: 1%;
+  margin-top:2%;
+ 
+}
