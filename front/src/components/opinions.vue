@@ -10,7 +10,7 @@
         <el-table
           :data="tableData"
           style="width: 100%"
-          max-height="250">
+          max-height="600">
 
           <el-table-column
             fixed

@@ -1,5 +1,4 @@
-# shitang
-
+# front
 ## Project setup
 ```
 npm install

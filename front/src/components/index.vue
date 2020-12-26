@@ -18,6 +18,9 @@
                   <span>{{item.FoodName}}</span>
                         +
                   <span>{{item.FoodName1}}</span>
+                         (
+                  <span>{{item.Remark}}</span>
+                         )
                 </div>
                   <div class="head_right">
                     <span  style="float:right;">{{item.OrderNum}}</span>
@@ -138,9 +141,9 @@
 }
 
 .head_right{
-  width: 150px;
+  width: 80px;
   color: #53A8FF;
-
+  float: right;
   font-size: 20px;
 
 
