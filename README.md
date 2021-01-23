@@ -9,13 +9,13 @@ vue.js，element UI，axios<br>
 go，gin，gorm,mysql
 ## 目前进度
 PC端与后端交互完成
-微信端尚未实现接口接入，微信后端未完成
+微信端未实现接口接入
 ## 项目需求 
 通过微信小程序预约食堂订单，通过减少支付流程，提前准备，缩短排队时间，同时提供外卖服务。
 ## 项目说明
 **diningApplets** 
 微信端:安装node环境，导入vant<br>
-**shitang**
+**front**
 PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 **dining**
 后端:安装go1.13以上，go get 相关的库
