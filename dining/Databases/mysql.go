@@ -9,6 +9,7 @@ import (
 
 var (DB *gorm.DB)
 
+//数据库连接
 func init(){
 	var err error
 	DB, err = gorm.Open("mysql", "root:666666@/dining?charset=utf8&parseTime=true")

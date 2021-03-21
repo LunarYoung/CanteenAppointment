@@ -8,11 +8,12 @@ type Admin struct {
 
 //用户
 type User struct {
-	WxId string   `gorm:"primary_key"`
+	WxId string    `gorm:"not null;unique"`
 	UserId string
 	Address string
 	Phone string
-	CodeUrl string
+	QrUrl string
+	ImageUrl string
 }
 
 //菜单列表
@@ -26,20 +27,24 @@ type FoodList struct {
 
 //进行订单
 type Orders struct {
-	OrderNum int    `gorm:"primary_key"`
-	UserId string    `gorm:"not null;unique"`
-	OrderTime string
-	Address string
-	Phone int
-	Price int
-	Type string
-	FoodName string
-	FoodName1 string
-	FoodUrl string
-	FoodUrl1 string
-	Remark string
+	OrderNum string    `gorm:"primary_key" form:"orderNum" json:"orderNum" binding:"required"`
+	GetNum string `form:"getNum"  json:"getNum" binding:"required"`
+	UserId string    `gorm:"not null" form:"userId" json:"userId" binding:"required"`
+	OrderTime string `form:"time" json:"time"`
+	Address string  `form:"address" json:"address"`
+	Phone string  `form:"phone" json:"phone"`
+	Price int ` gorm:"not null" form:"allPrice" json:"allPrice" binding:"required"`
+	Type string `form:"type" json:"type" binding:"required"`
+	FoodName string `form:"foodName" json:"foodName" binding:"required"`
+	FoodName1 string `form:"foodName1" json:"foodName1" `
+	FoodNum string `form:"foodNum" json:"foodNum" binding:"required"`
+	FoodNum1 string `form:"foodNum1" json:"foodNum1" `
+	FoodUrl string `form:"url" json:"url" `
+	FoodUrl1 string  `form:"url1" json:"url1" `
+	Remark string `form:"remark" json:"remark" `
 	PullUp bool  //挂起
 	Finish bool   //完成标记
+	UserCf string //用户确认
 
 }
 
@@ -54,11 +59,6 @@ type Advise struct {
 	FoodName string
 	Advise string
 }
-
-
-
-
-
 
 
 

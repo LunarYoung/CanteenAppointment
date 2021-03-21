@@ -7,10 +7,8 @@ import (
 )
 
 func main() {
-
 	Router.InitRouter()
 	defer Databases.DB.Close()
-
 }
 
 

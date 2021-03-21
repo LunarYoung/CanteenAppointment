@@ -1,9 +1,7 @@
 package Controller
 
 import (
-	"encoding/json"
 	_ "encoding/json"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -12,6 +10,7 @@ import (
 	"shitang/Models"
 	"time"
 )
+
 
 //管理员登陆
 func Login(c *gin.Context){
@@ -27,6 +26,7 @@ func Login(c *gin.Context){
 	 }
 }
 
+
 //堂食订单处理界面
 func Index(c *gin.Context){
 	var foodType string ="堂食"
@@ -38,14 +38,13 @@ func Index(c *gin.Context){
 
 	c.JSON(200,orders)
 
-
-
 	//jsons, errs := json.Marshal(ordering)
 	//if errs != nil {
 	//	fmt.Println(errs.Error())
 	// }
 	//fmt.Println(string(jsons))
 }
+
 
 //堂食订单挂起
 func DiningPu(c *gin.Context)  {
@@ -55,6 +54,8 @@ func DiningPu(c *gin.Context)  {
 	Databases.DB.Model(&Models.Orders{}).Where("order_num = ?", orderId).Update("pull_up",pull)
 
 }
+
+
 //堂食订单完成
 func DiningFi(c *gin.Context)  {
 	var orderId  = c.PostForm("orderId")
@@ -62,7 +63,6 @@ func DiningFi(c *gin.Context)  {
 	//Databases.DB.Where("order_num = ?", orderId).Delete(Models.Orders{})
 	Databases.DB.Model(&Models.Orders{}).Where("order_num = ?", orderId).Update("finish",finish)
 }
-
 
 
 
@@ -75,13 +75,13 @@ func PullUp(c *gin.Context)  {
 	c.JSON(200,orders)
 }
 
+
 func PullUpOp(c *gin.Context)  {
 	var orderId  = c.PostForm("orderId")
 	var finish bool =true
 	//Databases.DB.Where("order_num = ?", orderId).Delete(Models.Orders{})
 	Databases.DB.Model(&Models.Orders{}).Where("order_num = ?", orderId).Update("finish",finish)
 }
-
 
 
 
@@ -95,6 +95,7 @@ func OutFood(c *gin.Context) {
     c.JSON(200,orders)
 }
 
+
 //外卖订单操作页面
 func OutFoodOp(c *gin.Context){
 	var orderId  = c.PostForm("orderId")
@@ -104,46 +105,77 @@ func OutFoodOp(c *gin.Context){
 
 }
 
+
+
 //销量分析
 func Sales(c *gin.Context){
-	//求一天数量，堂食，外卖数据
-	var sum,outFood,inFood int
-
+	//求一天数量，堂食，外卖数据,循环
+	var sum[7] int
+	var outFood[7] int
+	var inFood[7] int
+	//var money [5] int
 	t := time.Now()
-	nowTime:=t.Format("2006-01-02 15:04:05")
-	midTime,_:=time.ParseDuration("+24h")
-	laterTime := t.Add(midTime)
-	lastTime:=laterTime.Format("2006-01-02 15:04:05")
 
-	Databases.DB.Where("type = ? AND order_time > ? AND order_time < ? ", "堂食",nowTime,lastTime).Find(&Models.Orders{}).Count(&inFood)
-	Databases.DB.Where("type = ? AND order_time > ? AND order_time < ? ", "外卖",nowTime,lastTime).Find(&Models.Orders{}).Count(&outFood)
-	Databases.DB.Where(" order_time > ? AND order_time < ? ", nowTime,lastTime).Find(&Models.Orders{}).Count(&sum)
+	mid,_:=time.ParseDuration("-24h")
+	nowTime:=t.Format("2006/01/02 15:04:05")
+	last1Time:=nowTime
+	midTime:=t
+	for i := 0; i <7; i++ {
 
-	//求一天的销量金额总和
-	var result []int64
-	var sumMoney int64
-	Databases.DB.Table("orders").Pluck("price",&result )
-	for _,v := range result{
-		sumMoney += v
+		midTime=midTime.Add(mid)
+		lastTime:=midTime.Format("2006/01/02 15:04:05")
+
+		println(lastTime)
+		println(last1Time)
+		println("------")
+
+		Databases.DB.Model(&Models.Orders{}).Where("type = ? AND order_time > ? AND order_time < ? ", "堂食",lastTime,last1Time).Count(&inFood[i])
+		Databases.DB.Model(&Models.Orders{}).Where("type = ? AND order_time > ? AND order_time < ? ", "外卖",lastTime,last1Time).Count(&outFood[i])
+		Databases.DB.Model(&Models.Orders{}).Where("order_time > ? AND order_time < ? ",lastTime,last1Time).Count(&sum[i])
+		last1Time=lastTime
+
+
 	}
-	c.JSON(200,gin.H{"堂食":inFood,"外卖":outFood,"总和":sum,"金额":sumMoney})
+
+	//laterTime := t.Add(midTime)
+	//lastTime:=laterTime.Format("2006-01-02 15:04:05")
+	//
+	//println(lastTime)
+	//
+	//Databases.DB.Model(&Models.Orders{}).Where("type = ? AND order_time > ? AND order_time < ? ", "堂食",nowTime,lastTime).Count(&inFood)
+	//Databases.DB.Model(&Models.Orders{}).Where("type = ? AND order_time > ? AND order_time < ? ", "外卖",nowTime,lastTime).Count(&outFood)
+	//Databases.DB.Model(&Models.Orders{}).Where("order_time > ? AND order_time < ? ", nowTime,lastTime).Count(&sum)
+	//
+	////求一天的销量金额总和
+	//var result []int64
+	//var sumMoney int64
+	//Databases.DB.Table("orders").Pluck("SUM(price) as result",&result )
+
+	c.JSON(200,gin.H{"a":inFood,"b":outFood,"c":sum})
 
 
 }
+
 
 //菜品分析
-
 func SalesFood(c *gin.Context){
+
 	var foodList  []Models.FoodList
-	Databases.DB.Find(&foodList )
-	jsons, errs := json.Marshal(foodList )
-	if errs != nil {
-		fmt.Println(errs.Error())
+	Databases.DB.Order("month_sell").Find(&foodList )
+     name :=make([] string,len(foodList))
+     num :=make([] int,len(foodList))
+
+	for i := 0; i <len(foodList); i++ {
+		name[i]=foodList[i].Name
+		num[i]=foodList[i].MonthSell
 	}
-	fmt.Println(string(jsons))
+
+	c.JSON(200,gin.H{"a":name,"b":num})
 
 
 }
+
+
 //编辑菜
 func ManageFood(c *gin.Context){
 	Databases.DB.AutoMigrate(&Models.FoodList{})
@@ -158,6 +190,7 @@ func FoodEdit(c *gin.Context){
 	var id = c.PostForm("imageId")
 	Databases.DB.Model(&Models.FoodList{}).Where("image_id = ?", id).Update("price",price)
 }
+
 
 func FoodDe(c *gin.Context){
 	//Databases.DB.AutoMigrate(&Models.FoodList{})
@@ -200,6 +233,7 @@ func OrdersRecord(c *gin.Context){
 	c.JSON(200,orders)
 }
 
+
 //意见处理
 func Opinion(c *gin.Context){
 	Databases.DB.AutoMigrate(&Models.Advise{})
@@ -207,6 +241,7 @@ func Opinion(c *gin.Context){
 	Databases.DB.Find(&advise)
 	c.JSON(200,advise)
 }
+
 
 //意见处理删除
 func OpinionDe(c *gin.Context){
