@@ -23,7 +23,7 @@ PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 <img src="/img/6.jpg"  height="800" width="450">
 <img src="/img/5.jpg"  height="800" width="450">
 <img src="/img/2.jpg"  height="800" width="450">
-<img src="/img/3.jpg"  height="800" width="450">
+<img src="/img/3.jpg"  height="800" width="450"><br>
 ### PC后台
 <img src="/img/7.png"  height="400" width="795">
 <img src="/img/8.png"  height="400" width="795">
