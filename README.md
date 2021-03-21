@@ -21,9 +21,12 @@ PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 后端:安装go1.13以上，go get 相关的库
 ## 项目预览
 ![avatar](/img/1.jpg)
-![avatar](/img/2.jpg)
-![avatar](img/18.jpg)
-![avatar](/img/3.png)
-![avatar](/img/4.jpg)
-![avatar](img/5.png)
-![avatar](img/6.png)
+![avatar](/img/6.jpg)
+![avatar](img/5.jpg)
+![avatar](/img/2.png)
+![avatar](/img/3.jpg)
+![avatar](img/7.png)
+![avatar](img/8.png)
+![avatar](img/9.png)
+![avatar](img/10.png)
+![avatar](img/11.png)
