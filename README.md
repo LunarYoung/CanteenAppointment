@@ -26,9 +26,10 @@ PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 <img src="/img/2.jpg"  height="830" width="495">
 <img src="/img/3.jpg"  height="830" width="495">
 
+<img src="/img/7.png"  height="400" width="795">
+<img src="/img/8.png"  height="400" width="795">
+<img src="/img/9.png"  height="400" width="795">
+<img src="/img/10.png"  height="400" width="795">
+<img src="/img/11.png"  height="400" width="795">
 
-![avatar](img/7.png)
-![avatar](img/8.png)
-![avatar](img/9.png)
-![avatar](img/10.png)
-![avatar](img/11.png)
+
