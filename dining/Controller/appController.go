@@ -111,8 +111,8 @@ func AppLogin(c *gin.Context){
 
 	code := c.PostForm("code")
 
-	appID := "wx6413abf52a195cc4"
-	appSecret:= "7ac2abd4d5af2a38642c1ac7e344f5d5"
+	appID := "自己的id"
+	appSecret:= "自己的口令"
 	code2sessionURL := "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code"
 	url := fmt.Sprintf(code2sessionURL, appID, appSecret, code)
 
