@@ -20,6 +20,7 @@ PC前端:安装node，npm vue，element ui，axios. 运行npm run serve<br>
 **dining**
 后端:安装go1.13以上，go get 相关的库
 ## 项目预览
+<img src="/img/1.jpg"  height="830" width="495">
 ![avatar](/img/1.jpg)
 ![avatar](/img/6.jpg)
 ![avatar](img/5.jpg)
