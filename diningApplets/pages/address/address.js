@@ -1,4 +1,5 @@
 // pages/phone.js
+const app = getApp()
 Page({
 
   /**
@@ -24,7 +25,7 @@ Page({
     })
     wx.request({
       method: "post",
-      url: 'http://127.0.0.1/Applets/address',
+      url: app.globalData.URL + 'Applets/address',
       data: ({
         address: this.data.address,
         userId: this.data.userId
@@ -56,13 +57,13 @@ Page({
     this.setData({ show: true });
   },
   onClose() {
-    this.setData({ show: false });
-    wx.showToast({
-      title: '提交成功',
-      image: "/assest/su.png",
-      duration: 700,
-      mask: true
-    })
+    // this.setData({ show: false });
+    // wx.showToast({
+    //   title: '提交成功',
+    //   image: "/assest/su.png",
+    //   duration: 700,
+    //   mask: true
+    // })
   },
 
   /**

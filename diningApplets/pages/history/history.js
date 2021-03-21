@@ -1,4 +1,5 @@
 // pages/history/history.js
+const app = getApp()
 Page({
 
   /**
@@ -8,11 +9,7 @@ Page({
     userId:"",
 
     orderList: [
-      
-    
     ]
-
-
   },
 
   /**
@@ -23,15 +20,11 @@ Page({
     wx.getStorage({
       key: 'info',
       success: function (res) {
-   
         that.setData({
           userId: res.data.userId
         })
       },
     })
-
-   
-
   },
 
   /**
@@ -41,7 +34,7 @@ Page({
     var that = this
     wx.request({
       method: "post",
-      url: 'http://127.0.0.1/Applets/query',
+      url: app.globalData.URL +'Applets/query',
       data: ({
         userId: this.data.userId,
       }),

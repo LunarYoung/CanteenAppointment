@@ -7,14 +7,12 @@ page {
   margin-top: 100rpx;
 }
 
-
-
 .panel{
   margin-top: 20rpx;
   background: 	white;
   border-radius: 25rpx;
   padding: 20rpx;
-  height: 300rpx;
+  height: auto;
   width: 90%;
   margin-left: 2.5%;
 }
@@ -44,22 +42,19 @@ page {
    font-weight: 500;
    float: right;
    margin-right: 20rpx;
+  
 }
 
-.panel_item_content_name{
-  font-weight: 500;
-}
+/* .panel_item_content_name{
+  font-weight: 520;
+} */
 
 .panel_item_content_price{
   color: red;
-   font-weight: 500;
-   float: right;
+  font-weight: 500;
+  float: right;
    margin-right: 20rpx;
 }
-
-
-
-
 
 .panel_item{
   margin-top: 5rpx;
@@ -67,7 +62,5 @@ page {
   font-size: 37rpx;
   font-weight: 300;
   height: 55rpx;
-
- 
 }
 

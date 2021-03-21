@@ -1,4 +1,5 @@
 // pages/advise/advice.js
+const app = getApp()
 Page({
 
   /**
@@ -7,7 +8,6 @@ Page({
   data: {
       food:"",
       advise:""
-
   },
 
   onChange: function (e) {
@@ -28,7 +28,7 @@ Page({
   clickBtn: function (e) {
     wx.request({
       method: 'post',
-      url: 'http://127.0.0.1/Applets/addAdvise', //仅为示例，并非真实的接口地址
+      url: app.globalData.URL +'Applets/addAdvise', //仅为示例，并非真实的接口地址
       data:({
       foodName:this.data.food,
       advise:this.data.advise
@@ -55,15 +55,11 @@ Page({
       },
     })
 
-
    console.log(this.data.advise)
     this.setData({
       advise:"",
       food:""
     })
-
-    
-   
   },
 
 

@@ -34,7 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
+    buycar: [],
+    URL: 'http://127.0.0.1/',
+    //URL: 'http://192.168.168.219/',
 
   }
 })

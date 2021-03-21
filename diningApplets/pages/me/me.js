@@ -1,4 +1,8 @@
 // pages/me/me.js
+const app = getApp()
+import Dialog from '@vant/weapp/dialog/dialog';
+
+
 Page({
   handleGetUserInfo(e){
     // const {userInfo} =e.data;
@@ -8,9 +12,7 @@ Page({
     wx.setStorage({
       //openId: res.data.openId,
       key: "url", data: url,
-
     })
-    
     this.setData({
       url: url
     })
@@ -18,15 +20,14 @@ Page({
     
   data: {
     url:""
-    
-
   },
+
   onGetOpenId() {
     wx.login({
       success: res => {
         if (res.code) {
           wx.request({
-            url: "http://127.0.0.1/Applets/login",
+            url: app.globalData.URL + "Applets/login",
             method: "POST",
             header: {
               'content-type': 'application/x-www-form-urlencoded' 
@@ -40,11 +41,9 @@ Page({
               wx.setStorage({
                 key: "info", data: res.data,
                 //key: "userId", data: res.data.userId,
-              })
-              
+              })        
             }
-          });
-         
+          }); 
         }
       }
     });
@@ -52,13 +51,12 @@ Page({
 
 getLoginId(){
   wx.request({
-    url: 'http://127.0.0.1/Applets/',
+    url: app.globalData.URL +'Applets/',
     data: {},
     method: 'GET',
     success: function (res) {
       // success
       console.log(res.data)
-      
     },
     fail: function () {
       // fail
@@ -69,7 +67,13 @@ getLoginId(){
   })
 },
 
-
+  tip(){
+    Dialog.alert({
+      title: '声明',
+      message: '食堂预约点餐主要用于线上预定饭菜和线上支付，减少食堂排队时间，和同时提供外卖服务。如有建议或者不同的想法，联系WeChat：Lunar_Young',
+    }).then(() => {
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载

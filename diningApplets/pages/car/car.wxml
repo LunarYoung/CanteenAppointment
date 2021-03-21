@@ -1,22 +1,28 @@
 <view wx:for="{{items}}" wx:key="index" data-index="{{index}}" >
-<van-card
-  tag="特价"
-  price="{{item.price}}"
-  desc="美味"
-  title="{{item.name}}"
-  thumb="{{item.thumb}}">
-    <view slot="footer">
-      <van-button class="shanchu" type="danger" size="mini" bindtap="deleteList" data-index="{{index}}">删除</van-button>
-      <van-stepper class="step" data-index="{{index}}" value="{{ item.number }}" bind:change="onChange" bind:plus="plus" bind:minus="minus"/>
-    </view>
-</van-card>
+    <van-card
+      title-class="title-class"
+      price-class="price-class"
+      tag="美味"
+      price="{{item.price}}"
+      title="{{item.name}}"
+      thumb="{{item.thumb}}">
+        <view slot="footer">
+          <van-button class="shanchu" type="danger" size="mini" bindtap="deleteList" data-index="{{index}}">删除   <van-toast id="van-toast" /></van-button>
+          <van-stepper class="step" data-index="{{index}}" value="{{ item.number }}"        bind:change="onChange" bind:plus="plus" bind:minus="minus"/>
+        </view>
+    </van-card>
 </view>
 
+<view wx:if="{{totalPrice !=''}}">
+    <van-submit-bar
+      price="{{totalPrice*100}}"
+      button-text="去结算"
+      bind:submit="onSubmit"
+    />
+</view>
 
-
-
-<van-submit-bar
-  price="{{totalPrice*100}}"
-  button-text="提交订单"
-  bind:submit="onSubmit"
-/>
+<view wx:if="{{totalPrice ==''}}"  class="car">
+        <image src="/assest/carNull.svg" class="img" >  
+        </image>  
+     <view class="tip"> 购物车为空哦</view>
+</view>

@@ -36,9 +36,10 @@
     "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-radio": "@vant/weapp/radio/index",
     "van-radio-group": "@vant/weapp/radio-group/index",
-      "van-row": "@vant/weapp/row/index",
-      "van-col": "@vant/weapp/col/index",
-      "van-notify": "@vant/weapp/notify/index"
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "van-dialog":"@vant/weapp/dialog/index"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {

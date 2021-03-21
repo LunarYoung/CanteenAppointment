@@ -1,9 +1,9 @@
 <van-notice-bar
   color="#1989fa"
   background="#F8F8FF"
- 
   text="如果你有推荐的菜品，或建议，在下方输入"
 />
+
 <van-cell-group>
   <van-field
     value="{{ food }}"
@@ -15,7 +15,6 @@
 </van-cell-group>
 
 <van-cell-group>
-
   <van-field
     value="{{ advise }}"
     label="建议"
@@ -27,9 +26,8 @@
     bind:change="onChange1"
     show-word-limit
   />
-
-
 </van-cell-group>
+
  <van-button custom-class="submit" bindtap="clickBtn" type="primary">
  提交 <van-toast id="van-toast"/>
  </van-button>

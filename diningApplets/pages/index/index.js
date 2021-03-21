@@ -2,78 +2,81 @@
 //获取应用实例
 const app = getApp()
 import Toast from '@vant/weapp/toast/toast';
+import Notify from '@vant/weapp/notify/notify';
 
-Page({
-  
 
- 
+Page({ 
   data: {
+    mid: 0,
+    tatol_price:0,
     motto: 'Hello World',
-    
-
-      url: "",
-
-
-
+    url: "",
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
 
     scImage:[
       {
-        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1066721984,714626582&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1547182276,1037304042&fm=26&gp=0.jpg"
       },
       {
-        url:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3052658242,2901276237&fm=26&gp=0.jpg"
+        url:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2574575598,3551990549&fm=26&gp=0.jpg"
       },
       {
-        url:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3038786427,2045024497&fm=26&gp=0.jpg"
+        url:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2147645132,268932704&fm=26&gp=0.jpg"
       }
     ],
 
-    items: [ ]
-  },
-  
+    items: [{ Name: "素炒青菜", MonthSell: 1,Price:5.5, ImageUrl: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=679410507,3478666188&fm=26&gp=0.jpg" }, 
+      { Name: "腌排骨", MonthSell: 1, Price: 7, ImageUrl: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2295249742,2696485909&fm=26&gp=0.jpg" },
+      
+      { Name: "狮子头", MonthSell: 1, Price: 6, ImageUrl: "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=33770419,1526287765&fm=26&gp=0.jpg" },   
+      { Name: "油炸小虾", MonthSell: 20, Price: 8, ImageUrl: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3021763351,856298291&fm=26&gp=0.jpg" }, 
+      { Name: "炸鸡翅", MonthSell: 7, Price: 6, ImageUrl: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1128675319,3362657940&fm=26&gp=0.jpg" },  
+      { Name: "油焖排骨", MonthSell: 22, Price: 8, ImageUrl: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1479485275,2612928786&fm=26&gp=0.jpg" }, 
+      { Name: "香芋梅菜", MonthSell: 7, Price: 7, ImageUrl: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2925501324,1738052312&fm=26&gp=0.jpg" }, 
+      ]
+},
+    test:[],  
+ 
+onSubmit(){
+  wx.navigateTo({
+    url: '/pages/cfOrder/cfOrder'
+  })
+},
 
-  onShow: function () {
-    var that = this
-    wx.request({
-      url: 'http://127.0.0.1/Applets/showFood',
-      data: {},
-      method: 'GET', 
-      success: function (res) {
-        // success
-        console.log(res.data)
-        that.setData({ items: res.data });
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
+onShow: function () {
+  var that = this
+  wx.request({
+    url: app.globalData.URL + 'Applets/showFood',
+    data: {},
+    method: 'GET', 
+    success: function (res) {
+      // success
+      console.log(res.data)
+      that.setData({ items: res.data });
+    },
+    fail: function () {
+      // fail
+    },
+    complete: function () {
+      // complete
+    }
+  })
 
-    wx.getStorage({
-      key: 'url',
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          url: res.data
-        })
-      },
-      fail:function(){
-        wx.switchTab({ url: '/pages/me/me', })
-      }
-    })
-
-
-    
-  },
-
-
-
-
+  wx.getStorage({
+    key: 'url',
+    success: function (res) {
+      console.log(res.data)
+      that.setData({
+        url: res.data
+      })
+    },
+    fail:function(){
+      wx.switchTab({ url: '/pages/me/me', })
+    }
+  })  
+},
 
   a:function(){
    wx.getUserInfo({
@@ -83,18 +86,53 @@ Page({
    })
   },
 
-  
-
-
-  clickBtn: function () {
-    Toast({
-      message:"加入成功",
-      duration:500,
-      position:"bottom"
-    });
-   
+  clickBtn: function (e) {
+    
   },
   
+  handeltap:function(e){
+    var items = this.data.items
+
+    var index = e.currentTarget.dataset.index;
+   
+    var name = items[index].Name 
+    var price = items[index].Price
+    var url = items[index].ImageUrl
+    
+    var mid =this.data.mid
+    console.log(mid)
+    
+    var app = getApp(); 
+    if(app.globalData.buycar.length>1){
+      Toast.fail('购物车已满');
+      console.log("-----"+items)
+  }
+
+ else{
+
+    Toast.success('已添加购物车哦！');
+    app.globalData.buycar.push( {  "name": name, "price": price,"thumb":url,number:1 })
+    mid++
+ }
+
+ var tatol_price =this.data.tatol_price
+ tatol_price =tatol_price +price
+
+this.setData({
+  mid:mid,
+  tatol_price:tatol_price
+})
+
+
+
+    
+  },
+
+  onHide: function () {
+    this.setData({
+      tatol_price:0
+    })
+  },
   // gotoPage1: function () {
   //   wx.navigateTo({ url: '/pages/me/me', })
   // },
@@ -144,12 +182,4 @@ Page({
 //       hasUserInfo: true
 //     })
 //   }
-
-
-  
-
-
-
-
-
  })

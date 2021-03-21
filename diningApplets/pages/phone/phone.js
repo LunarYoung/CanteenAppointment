@@ -1,4 +1,5 @@
 // pages/phone.js
+const app = getApp()
 Page({
 
   /**
@@ -10,7 +11,6 @@ Page({
     userId:""
   },
   
-
   input: function (e) {
   
     var phone = e.detail
@@ -18,7 +18,6 @@ Page({
       phone: e.detail
     })
   },
- 
 
   clickBtn: function () {
     // console.log(this.data.userId)   
@@ -28,7 +27,7 @@ Page({
     })
      wx.request({
        method:"post",
-       url: 'http://127.0.0.1/Applets/phone',
+       url: app.globalData.URL +'Applets/phone',
        data: ({
          phone: this.data.phone,
          userId: this.data.userId

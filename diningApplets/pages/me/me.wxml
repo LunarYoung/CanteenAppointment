@@ -1,21 +1,16 @@
 
 <view wx:if="{{url != ''}}"class="up" >
-<van-image
-class="i_image"
-  round
-  width="5rem"
-  height="5rem"
-  src="{{url}}"
-/>
+  <van-image
+  class="i_image"
+    round
+    width="5rem"
+    height="5rem"
+    src="{{url}}"
+  />
 </view>
 <view wx:if="{{url == ''}}" >
-<!-- <button class="loginBtn" type="primary" plain open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" >登陆</button> -->
-
-<button class="loginBtn" type="primary" plain bindtap='onGetOpenId'  open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" >登陆</button>
-
+  <button class="loginBtn" type="primary" plain bindtap='onGetOpenId'  open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" >登陆</button>
 </view>
-
-
 
 <van-cell
   is-link
@@ -24,9 +19,7 @@ class="i_image"
   link-type="navigateTo"
   url="/pages/phone/phone"
   size="large"
-
 />
-
 
 <van-cell
   is-link
@@ -46,8 +39,6 @@ class="i_image"
   size="large"
 />
 
-
-
 <van-cell
   is-link
   icon="/assest/me/twoCode.svg"
@@ -56,6 +47,7 @@ class="i_image"
   url="/pages/twoCode/twoCode"
   size="large"
 />
+
 <van-cell
   is-link
   icon="/assest/me/advise.svg"
@@ -65,11 +57,21 @@ class="i_image"
   size="large"
 />
 
-<van-cell
+
+<!-- <van-cell 
   is-link
   icon="/assest/me/state.svg"
   title="声明"
   link-type="navigateTo"
   url="/pages/state/state"
-  size="large"
-/>
+  size="large">
+
+<van-cell/> -->
+<van-cell title="声明"
+ is-link
+ icon="/assest/me/state.svg"
+ size="large" 
+ bindtap="tip">
+ </van-cell>
+ <van-dialog id="van-dialog" />
+ 
