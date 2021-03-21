@@ -15,22 +15,39 @@
             <el-card class="box-card">
               <div class="head">
                 <div>
-                  <span>{{item.FoodName}}</span>
+                  <span>{{item.foodName}}</span>
                         +
-                  <span>{{item.FoodName1}}</span>
-                         (
-                  <span>{{item.Remark}}</span>
-                         )
+                  <span>{{item.foodName1}}</span>
+                  <span v-if="item.remark===''">
+
+                  <span>{{item.remark}}</span>
+
+                  </span>
+
+                  <span v-else>
+                    (
+                  <span>{{item.remark}}</span>
+                    )
+                  </span>
+
                 </div>
-                  <div class="head_right">
-                    <span  style="float:right;">{{item.OrderNum}}</span>
+                  <div class="head_right" v-if="item.remark===''">
+
+                    <span  style="float:right;margin-right:-80px;">{{item.orderNum}}</span>
                   </div>
+
+                <div class="head_right" v-else>
+
+                  <span  style="float:right;margin-right:-8px;">{{item.orderNum}}</span>
+                </div>
+
+
               </div>
 
               <div class="content">
                 <div class="divImage" >
-                  <img :src="item.FoodUrl" class="image">
-                  <img :src="item.FoodUrl1" class="image1">
+                  <img :src="item.url" class="image">
+                  <img :src="item.url1" class="image1">
                 </div>
                 <div style="margin-left: 20px" >
                   <div>
@@ -91,7 +108,7 @@
           console.log(item);
 
           let data = new FormData();
-          let a =item.OrderNum
+          let a =item.orderNum
           data.append('orderId',a);
           console.log(a)
 
@@ -110,7 +127,7 @@
         operateFinish(item) {
           console.log(item);
           let data = new FormData();
-          let a =item.OrderNum
+          let a =item.orderNum
           data.append('orderId',a);
           console.log(a)
           this.$http.post('/dining/diningFi',data).then(() =>
@@ -137,14 +154,16 @@
   border-bottom: 1px solid grey;
   display: flex;
 
-
 }
+
 
 .head_right{
   width: 80px;
   color: #53A8FF;
-  float: right;
+  /*float: right;*/
   font-size: 20px;
+
+
 
 
 }

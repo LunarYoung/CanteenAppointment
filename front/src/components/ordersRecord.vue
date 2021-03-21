@@ -2,7 +2,7 @@
 
   <el-container >
 
-    <el-aside width="200px" >
+    <el-aside width="200px">
 <!--      @open="handleOpen"-->
 <!--      @close="handleClose"-->
       <my_menu></my_menu>
@@ -18,53 +18,61 @@
           style="width: 100%">
 
           <el-table-column
-            prop="OrderTime"
+            prop="time"
             label="日期"
             sortable
             width="180">
           </el-table-column>
 
           <el-table-column
-            prop="OrderNum"
+            prop="orderNum"
             label="订单号"
-            width="180">
+            width="150">
           </el-table-column>
 
           <el-table-column
-            prop="FoodName"
+            prop="foodName"
             label="菜名"
-            width="80">
-          </el-table-column>
-
-          <el-table-column
-            prop="FoodName1"
-            label=""
             width="100">
           </el-table-column>
 
           <el-table-column
-            prop="Price"
+            prop="foodName1"
+            label=""
+            width="120">
+          </el-table-column>
+
+          <el-table-column
+            prop="allPrice"
             label="价格"
-            width="180">
+            width="120">
           </el-table-column>
 
           <el-table-column
-            prop="Remark"
+            prop="remark"
             label="备注"
-            width="230">
+            width="140">
           </el-table-column>
 
           <el-table-column
-            prop="Type"
+            prop="UserCf"
+            label="收货完成"
+            width="100">
+          </el-table-column>
+
+
+          <el-table-column
+            prop="type"
             label="类别"
-            width="100"
+            width="120"
             :filters="[{ text: '堂食', value: '堂食' }, { text: '外卖', value: '外卖' }]"
             :filter-method="filterTag"
             filter-placement="bottom-end">
             <template slot-scope="scope">
               <el-tag
-                :type="scope.row.Type === '外卖' ? 'primary' : 'success'"
-                disable-transitions>{{scope.row.Type}}</el-tag>
+                :type="scope.row.type === '外卖' ? 'primary' : 'success'"
+                disable-transitions>{{scope.row.type}}
+              </el-tag>
             </template>
           </el-table-column>
 
@@ -87,7 +95,7 @@
 
         tableData:[ ],
 
-        //table: false,
+        table: false,
         dialog: false,
         loading: false,
         drawer: false
@@ -109,7 +117,7 @@
         return row.address;
       },
       filterTag(value, row ) {
-        return row.Type === value;
+        return row.type === value;
 
       },
       filterHandler(value, row, column) {
@@ -129,7 +137,6 @@
     /*line-height: 70px;*/
     /*float:left;*/
     height: 580px;
-
 
   }
 

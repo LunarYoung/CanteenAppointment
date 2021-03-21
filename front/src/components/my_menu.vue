@@ -85,7 +85,7 @@
         width="180">
         <template slot-scope="scope">
           <i ></i>
-          <span >{{ scope.row.OrderTime }}</span>
+          <span >{{ scope.row.time }}</span>
         </template>
       </el-table-column>
       <el-table-column
@@ -96,7 +96,7 @@
 
 
             <div slot="reference" class="name-wrapper">
-              <span size="medium">{{ scope.row.OrderNum }}</span>
+              <span size="medium">{{ scope.row.orderNum }}</span>
             </div>
           </el-popover>
         </template>
@@ -109,7 +109,7 @@
           <el-popover trigger="hover" placement="top">
 
             <div slot="reference" class="name-wrapper">
-              <span size="medium">{{ scope.row.FoodName }}</span>
+              <span size="medium">{{ scope.row.foodName }}</span>
             </div>
           </el-popover>
         </template>
@@ -122,7 +122,7 @@
           <el-popover trigger="hover" placement="top">
 
             <div slot="reference" class="name-wrapper">
-              <span size="medium">{{ scope.row.FoodName1 }}</span>
+              <span size="medium">{{ scope.row.foodName1 }}</span>
             </div>
           </el-popover>
         </template>
@@ -134,7 +134,7 @@
           <el-button
              plain
             type="info"
-           >{{ scope.row.Type }}</el-button>
+           >{{ scope.row.type }}</el-button>
         </template>
       </el-table-column>
 
@@ -189,7 +189,7 @@
         handle(index, row){
 
           let data = new FormData();
-          let a =row.OrderNum
+          let a =row.orderNum
           data.append('orderId',a);
           console.log(a)
 
@@ -228,5 +228,6 @@
     font-size: 20px;
     color: white
   }
+
 
 </style>

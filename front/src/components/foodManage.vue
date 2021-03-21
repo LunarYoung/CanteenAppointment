@@ -2,7 +2,7 @@
 
   <el-container >
 
-    <el-aside width="200px" >
+    <el-aside width="200px"  >
 
        <my_menu></my_menu>
 
@@ -192,7 +192,10 @@
     /*text-align: center;*/
     /*line-height: 70px;*/
     /*float:left;*/
-    height: 580px;
+    /*height: 580px;*/
+    position: relative;
+
+
   }
 
   .el-main {

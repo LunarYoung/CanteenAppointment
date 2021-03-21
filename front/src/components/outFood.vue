@@ -19,7 +19,7 @@
             width="280">
             <template slot-scope="scope">
               <i ></i>
-              <span >{{ scope.row.OrderTime }}</span>
+              <span >{{ scope.row.time }}</span>
             </template>
           </el-table-column>
 
@@ -29,7 +29,7 @@
             <template slot-scope="scope">
               <el-popover trigger="hover" placement="top">
                 <div slot="reference" class="name-wrapper">
-                  <span size="medium">{{ scope.row.OrderNum }}</span>
+                  <span size="medium">{{ scope.row.orderNum }}</span>
                 </div>
               </el-popover>
             </template>
@@ -41,7 +41,7 @@
             <template slot-scope="scope">
               <el-popover trigger="hover" placement="top">
                 <div slot="reference" class="name-wrapper">
-                  <span size="medium">{{ scope.row.FoodName }}</span>
+                  <span size="medium">{{ scope.row.foodName }}</span>
                 </div>
               </el-popover>
             </template>
@@ -52,7 +52,7 @@
             <template slot-scope="scope">
               <el-popover trigger="hover" placement="top">
                 <div slot="reference" class="name-wrapper">
-                  <span size="medium">{{ scope.row.FoodName1 }}</span>
+                  <span size="medium">{{ scope.row.foodName1 }}</span>
                 </div>
               </el-popover>
             </template>
@@ -64,7 +64,7 @@
             <template slot-scope="scope">
               <el-popover trigger="hover" placement="top">
                 <div slot="reference" class="name-wrapper">
-                  <span size="medium">{{ scope.row.Remark}}</span>
+                  <span size="medium">{{ scope.row.remark}}</span>
                 </div>
               </el-popover>
             </template>
@@ -121,7 +121,7 @@
       handleDelete(index, row) {
 
         let data = new FormData();
-        let a =row.OrderNum
+        let a =row.orderNum
         data.append('orderId',a);
         console.log(a)
 

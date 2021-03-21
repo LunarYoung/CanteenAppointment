@@ -1,13 +1,13 @@
 <template>
   <el-container >
 
-    <el-aside width="200px" >
+    <el-aside width="200px"  >
       <my_menu></my_menu>
     </el-aside>
 
     <el-container>
       <el-main style="padding: 0">
-
+        <el-button type="primary" class="title">菜系上传</el-button>
         <div class="mid">
 
 
@@ -53,9 +53,6 @@
 
     methods: {
 
-
-
-
       submit() {
         this.$refs["ruleForm"].validate(valid => {
           this.$refs.upload.submit(); //图片上传
@@ -76,29 +73,36 @@
     }}
 
 
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <style scoped>
 
-  .mid{
-    width: 50%;
-    margin-top: 10%;
-    margin-left: 20%;
+  .el-aside {
+    background-color: #545c64;
+    /*color: #333;*/
+    /*text-align: center;*/
+    /*line-height: 70px;*/
+    /*float:left;*/
+    /*height: 580px;*/
+    position: relative;
+
+
   }
+
+.mid{
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 18%;
+}
 .btn{
   width: 200px;
   margin-left: 45%;
 
 }
+.title{
+  margin-left: 38%;
+  margin-top: 5%;
+  width: 250px;
+}
+
 </style>

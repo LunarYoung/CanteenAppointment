@@ -23,97 +23,164 @@
 <script>
   import echarts from 'echarts';
 
-  export default {
-    data(){
-      return {
 
+
+  export default {
+
+    created () {
+      this.getSales()
+
+    },
+
+    data () {
+      return {
+        list: [],
+        aa: [1, 0, 0, 5, 0],
         table: false,
         dialog: false,
         loading: false,
         drawer: false,
       };
     },
-    name: 'index',
-    mounted() {
-      var myChart = echarts.init(document.getElementById('main'));
-      var option = {
-        title: {
-          text: ''
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'cross',
-            label: {
-              backgroundColor: '#6a7985'
+
+    mounted () {
+      this.drawLine();
+    },
+
+    methods: {
+    //   getSales() {
+    //     this.$http.get("dining/sales")
+    //       .then(res => {
+    //         console.log(res)
+    //         this.list = res.data
+    //
+    //          console.log(this.list)
+    //       })
+    // },
+
+      drawLine(){
+        this.char = echarts.init(document.getElementById('main'));
+
+        this.char.setOption({
+
+          title: {
+            text: '销量折线图',
+            textStyle:{					//---主标题内容样式
+              color:'#3398DB'
+            },
+
+            padding:[0,0,100,100]				//---标题位置,因为图形是是放在一个dom中,因此用padding属性来定位
+
+          },
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'cross',
+              label: {
+                backgroundColor: '#6a7985'
+              }
             }
-          }
-        },
-        legend: {
-          data: ['金额', '总销量', '堂食', '外卖',]
-        },
-        toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: 'category',
-            boundaryGap: false,
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ],
-        series: [
-          {
-            name: '外卖',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [20, 32, 31, 34, 30, 30, 30]
           },
-          {
-            name: '堂食',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [150, 232, 201, 154, 190, 330, 10]
+          legend: {
+            data: ['金额', '总销量', '堂食', '外卖',]
           },
-          {
-            name: '总销量',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [220, 182, 191, 234, 290, 330, 310]
+          toolbox: {
+            feature: {
+              saveAsImage: {}
+            }
           },
-          {
-            name: '金额',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [120, 132, 101, 134, 90, 230, 210]
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
           },
+          xAxis: [
+            {
+              type: 'category',
+              boundaryGap: false,
+              data: ['最近第七天', '最近第六天', '最近第五天', '最近第四天', '最近第三天', '最近第二天', '最近第一天']
+            }
+          ],
+          yAxis: [
+            {
+              type: 'value'
+            }
+          ],
+
+          order: [],
+
+          series: [
+            {
+              name: '外卖',
+              type: 'line',
+              stack: '总量',
+              areaStyle: {},
+              data: []
+
+            },
+            {
+              name: '堂食',
+              type: 'line',
+              stack: '总量',
+              areaStyle: {},
+              data:[]
+            },
+            {
+              name: '总销量',
+              type: 'line',
+              stack: '总量',
+              areaStyle: {},
+              data: this.list
+            },
+          ]
+        })
+        this.$http.get('http://localhost:80/dining/sales')
+          .then((res)=>{
+            console.log('访问后台');
+            // console.log(res.data);
+            this.list=res.data;
+            console.log(this.list);
+            // this.labList = eval('('+data+')');
+            this.char.setOption({
+              series: [
+                {
+                  name: '外卖',
+                  type: 'line',
+                  stack: '总量',
+                  areaStyle: {},
+                  data: this.list.a
+
+                },
+                {
+                  name: '堂食',
+                  type: 'line',
+                  stack: '总量',
+                  areaStyle: {},
+                  data:this.list.b
+                },
+                {
+                  name: '总销量',
+                  type: 'line',
+                  stack: '总量',
+                  areaStyle: {},
+                  data: this.list.c
+                },
+              ]
+            })
+          });
+      }
+
+ }
 
 
-
-        ]
-      };
+  }
 
       // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(option);
-    }
-  }
+
+
+
+
 </script>
 
 <style scoped>
