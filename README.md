@@ -4,7 +4,7 @@
 **微信端**:
 vant<br>
 **前端**:
-vue.js，element UI，axios<br>
+vue.js，element UI，axios，echart<br>
 **服务端**:
 go，gin，gorm,mysql
 
