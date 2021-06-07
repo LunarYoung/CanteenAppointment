@@ -7,6 +7,8 @@ vant<br>
 vue.js，element UI，axios，echart<br>
 **服务端**:
 go，gin，gorm,mysql
+**视频演示**
+https://www.bilibili.com/video/BV1uA411V7tE/
 
 ## 项目需求 
 通过微信小程序预约食堂订单，通过减少支付流程，提前准备，缩短排队时间，同时提供外卖服务。
